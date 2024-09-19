@@ -1,9 +1,7 @@
-# Your Solution
-
-# Starting from the official Python slim image
+# Start from the official Python slim image
 FROM python:3.9-slim
 
-# Set the working directory inside the container
+# Set the working directory to the parent folder of 'app'
 WORKDIR /app
 
 # Copy the requirements.txt to the container
@@ -12,7 +10,7 @@ COPY requirements.txt .
 # Install the dependencies specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the current directory contents into the container
+# Copy the entire contents into the container
 COPY . .
 
 # Expose the port on which FastAPI will run
